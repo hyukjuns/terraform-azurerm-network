@@ -1,3 +1,3 @@
-# terraform-azurerm-vm
+# terraform-azurerm-network
 ## terraform cloud private repository
 ### Nam's Network module
