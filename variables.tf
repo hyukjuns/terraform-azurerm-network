@@ -13,13 +13,13 @@ variable "vnet_name" {
 }
 variable "address_space" {
   type        = list(any)
-  description = "vnet address space"
+  description = "list of vnet address"
 }
 variable "subnet_name" {
   type        = string
   description = "subnet name"
 }
-variable "subnet_address_prefix" {
+variable "subnet_address_prefixes" {
   type        = list(any)
-  description = "subnet adress prefix"
+  description = "list of subnet address"
 }
