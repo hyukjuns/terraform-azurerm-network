@@ -1,10 +1,38 @@
 # terraform-azurerm-network
+# Prerequisites
+## OS
+- Mac or Linux or WSL2
 ## Registry
 terraform cloud private repository
-## Provider
-hashicorp/azurerm
+## Version & Provider
+- Terraform( > 0.13.0)
+- hashicorp/azurerm( > 2.60.0)
 ## Usage-Sample
 [usage-sample](./usage-sample)
+```
+provider "azurerm" {
+  features {}
+}
+
+resource "azurerm_resource_group" "example" {
+  name     = "my-resources"
+  location = "West Europe"
+}
+
+module "network" {
+  source                = "../../modules/network"
+  resource_group_name   = azurerm_resource_group.rg.name
+  location              = azurerm_resource_group.rg.location
+  vnet_name             = "tf-vnet"
+  address_space         = ["10.0.0.0/16"]
+  subnet_name           = "tf-subnet-01"
+  subnet_address_prefix = ["10.0.0.0/24"]
+
+  depends_on = [
+    azurerm_resource_group.rg
+  ]
+}
+```
 ## Inputs
 ### Required
 ```
@@ -34,29 +62,4 @@ vnet_location
 vnet_address_space
 vnet_guid
 vnet_subnet
-```
-## Usage
-```
-provider "azurerm" {
-  features {}
-}
-
-resource "azurerm_resource_group" "example" {
-  name     = "my-resources"
-  location = "West Europe"
-}
-
-module "network" {
-  source                = "../../modules/network"
-  resource_group_name   = azurerm_resource_group.rg.name
-  location              = azurerm_resource_group.rg.location
-  vnet_name             = "tf-vnet"
-  address_space         = ["10.0.0.0/16"]
-  subnet_name           = "tf-subnet-01"
-  subnet_address_prefix = ["10.0.0.0/24"]
-
-  depends_on = [
-    azurerm_resource_group.rg
-  ]
-}
 ```

@@ -1,7 +1,7 @@
 # Required
 variable "resource_group_name" {
   type        = string
-  description = "rg name"
+  description = "resource group name"
 }
 variable "location" {
   type        = string
