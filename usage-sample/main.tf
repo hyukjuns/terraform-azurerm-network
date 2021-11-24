@@ -18,7 +18,7 @@ resource "azurerm_resource_group" "rg" {
 
 module "network" {
   source  = "app.terraform.io/cloocus-mspdevops/network/azurerm"
-  version = "0.0.5"
+  version = "1.0.0"
   resource_group_name   = azurerm_resource_group.rg.name
   location              = azurerm_resource_group.rg.location
   vnet_name             = var.vnet_name
