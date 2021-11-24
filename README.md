@@ -1,7 +1,7 @@
 # terraform-azurerm-network
 # Prerequisites
 ## OS
-- Mac or Linux or WSL2
+- MacOS or Linux or WSL2
 ## Registry
 terraform cloud private repository
 ## Version & Provider
@@ -15,17 +15,18 @@ provider "azurerm" {
 }
 
 resource "azurerm_resource_group" "example" {
-  name     = "my-resources"
-  location = "West Europe"
+  name     = "my-rg"
+  location = "koreacentral"
 }
 
 module "network" {
-  source                = "../../modules/network"
+  source  = "app.terraform.io/cloocus-mspdevops/network/azurerm"
+  version = "x.x.x"
   resource_group_name   = azurerm_resource_group.rg.name
   location              = azurerm_resource_group.rg.location
   vnet_name             = "tf-vnet"
   address_space         = ["10.0.0.0/16"]
-  subnet_name           = "tf-subnet-01"
+  subnet_name           = "tf-subnet"
   subnet_address_prefix = ["10.0.0.0/24"]
 
   depends_on = [
