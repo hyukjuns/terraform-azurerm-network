@@ -15,7 +15,7 @@ provider "azurerm" {
 }
 
 resource "azurerm_resource_group" "example" {
-  name     = "my-rg"
+  name     = "tf-rg"
   location = "koreacentral"
 }
 
