@@ -1,5 +1,5 @@
 # terraform-azurerm-network
-# Prerequisites
+# 환경준비
 ## OS
 - MacOS or Linux or WSL2
 ## Registry
@@ -7,7 +7,7 @@ terraform cloud private repository
 ## Version & Provider
 - Terraform( > 0.13.0)
 - hashicorp/azurerm( > 2.60.0)
-## Usage-Sample
+## 사용 예제
 [usage-sample](./usage-sample)
 ```
 provider "azurerm" {
